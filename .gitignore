@@ -1,2 +1,3 @@
 notes.txt
 .terraform
+.terraform.lock.hcl

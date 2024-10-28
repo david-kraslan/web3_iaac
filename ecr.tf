@@ -2,7 +2,7 @@ module "ecr_client" {
   source  = "terraform-aws-modules/ecr/aws"
   version = "2.3.0"
 
-  repository_name                 = "web3/client"
+  repository_name                 = "web3/krypt-webapp"
   repository_type                 = "private"
   repository_image_scan_on_push   = false
   repository_image_tag_mutability = "MUTABLE"
@@ -31,7 +31,7 @@ module "ecr_smart_contract" {
   source  = "terraform-aws-modules/ecr/aws"
   version = "2.3.0"
 
-  repository_name                 = "web3/smartcontract"
+  repository_name                 = "web3/krypt-smart-contract"
   repository_type                 = "private"
   repository_image_scan_on_push   = false
   repository_image_tag_mutability = "MUTABLE"
