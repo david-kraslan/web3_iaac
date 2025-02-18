@@ -2,6 +2,7 @@ variable "instance_name" {
   description = "Jumphost instance name"
   type        = string
   default     = "Jumphost"
+  sensitive   = true
 }
 
 variable "instance_type" {

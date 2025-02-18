@@ -11,7 +11,6 @@ spec:
   source:
     repoURL: https://github.com/david-kraslan/web3_k8s.git
     targetRevision: HEAD
-    namespace: dev
     path: envs/dev
     directory:
       recurse: true
