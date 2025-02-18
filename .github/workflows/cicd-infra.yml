@@ -1,0 +1,58 @@
+name: Terraform workflow
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PRODUCTION: false
+
+jobs:
+  terraform:
+    name: Terraform
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Terraform Setup
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 
+          terraform_wrapper: false
+
+      - name: Formatting check
+        id: fmt
+        run: terraform fmt -check
+
+      - name: Initialize Terraform
+        id: init
+        run: terraform init
+
+      - name: Validate the configuration
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Plan the changes
+        id: plan
+        run: terraform plan -no-color
+
+      - name: Deploy the changes
+        id: apply
+        run: terraform apply-auto-approve
+
+
+
+
+
+
+
+
+
